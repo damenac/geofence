@@ -14,9 +14,14 @@ print('You entered: (' + str(longitude) + ', ' + str(latitude) + ')')
 france = BigGeopixel("France", 0, 0, 10)
 
 
-def inside_big_pixel(latitude, longitude):
-    print("I'm checking if your localization is inside the big pixel: " + france.to_string())
-    return abs(france.latitude - latitude) >= france.radious and abs(france.longitude - longitude) >= france.radious
+def inside_big_pixel(bigPixel, latitude, longitude):
+    print("I'm checking if your localization is inside the big pixel: " + bigPixel.to_string())
+    return ((latitude - bigPixel.latitude) ^ 2 + (longitude - bigPixel.longitude) ^ 2) < bigPixel.radious
 
-    
-inside_big_pixel(latitude, longitude)
+
+def check_known_big_pixels():
+    inside_france = inside_big_pixel(france, latitude, longitude)
+    print("France: " + str(inside_france))
+
+
+check_known_big_pixels()
