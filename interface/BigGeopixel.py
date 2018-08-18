@@ -21,4 +21,4 @@ class BigGeopixel(object):
         self.radious = radious
 
     def to_string(self):
-        return "Latitude: " + str(self.latitude) + " Longitude: " + str(self.longitude)
+        return self.name + " [Latitude: " + str(self.latitude) + " Longitude: " + str(self.longitude) + "]"
